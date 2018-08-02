@@ -31,13 +31,13 @@ resample_angle <- function(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95
   quantiles <- c(0.5 - conf_interval / 2,
                  0.5 + conf_interval / 2)
   # draw parametric bootstraps for each observation.
-  samplex <- rnorm(ndraws*length(xvals))
+  samplex <- rnorm(ndraws*length(x))
   samplex <- matrix(samplex, ncol = ndraws)
-  samplex <- (samplex * SE_x) + xvals
+  samplex <- (samplex * SE_x) + x
   # samples for y axis
-  sampley <- rnorm(ndraws*length(xvals))
+  sampley <- rnorm(ndraws*length(x))
   sampley <- matrix(sampley, ncol = ndraws)
-  sampley <- (sampley * SE_x) + yvals
+  sampley <- (sampley * SE_x) + y
 
   # vector lengths and tau for each realisation.
   norm <- vector_norm(samplex, sampley)
@@ -47,6 +47,7 @@ resample_angle <- function(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95
   breaks <- seq(-1,1, width)
   bks    <- cut(sint, breaks)
   binvals <- tapply(sint, bks, length)
+  binvals[is.na(binvals)] <- 0
   binvals <- binvals / sum(binvals)
   dist    <- data.frame(interval = levels(bks), midpoint = breaks[-1]-width/2, binvals, row.names = NULL)
 

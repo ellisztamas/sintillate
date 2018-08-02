@@ -38,7 +38,7 @@ SE_angle  <- function(x, y, SE_x, SE_y){
   # {\eqn{\sigma_{x}, \sigma_{y}}, angle \eqn{\theta} is \eqn{ \tan (y/x) }, with
   # standard error:
   # \deqn{\sqrt{\frac{(\sigma_x /x)^2 + (\sigma_y/y)^2}{1+(x/y)^2}} }
-  sqrt((SE_x/effectx)^2 + (SE_y/effecty)^2) / (1+ (effecty/effectx)^2)
+  sqrt((SE_x/x)^2 + (SE_y/y)^2) / (1+ (y/x)^2)
 }
 
 #' Quantify pleiotropy between two variables.

@@ -9,6 +9,7 @@
 #' the robustness of the estimate of \eqn{\tau}.
 #'
 #' @param tau Vector of \eqn{\tau} values.
+#' @param tau Vector of \eqn{q} values.
 #' @param width Width of each bin. Passed to \code{cut}. Since \eqn{\tau} can
 #' only be between -1 and 1, it is meaningless to assign a width greater than
 #' that interval.
@@ -17,17 +18,20 @@
 #' sums of \emph{q}-values in each bin.
 #'
 #' @export
-tau_distribution <- function(tau, width = 1/8){
+tau_distribution <- function(tau, q, width = 1/8){
   if(width > 2){
     stop("Width > 2. Since $\\tau$ can only be between -1 and 1, it is meaningless to assign a width greater than that interval.")
   }
+  if(length(q) != length(tau)){
+    stop("Length of q and tau do not match.")
+  }
   breaks <- seq(-1, 1, width)
-  bks    <- cut(sint$tau, breaks)
+  bks    <- cut(tau, breaks)
 
-  yvals <- tapply(sint$q, bks, sum, na.rm=TRUE)
+  yvals <- tapply(q, bks, sum, na.rm=TRUE)
   yvals[is.na(yvals)] <- 0
-  yvals <- yvals / length(sint$tau)
+  yvals <- yvals / sum(yvals)
 
-  data.frame(interval = levels(bks), midpoint = breaks[-1]-width/2, yvals, row.names = NULL)
+  data.frame(interval = levels(bks), midpoint = breaks[-1]-width/2, density=yvals, row.names = NULL)
 }
 

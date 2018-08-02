@@ -2,7 +2,7 @@
 % Please edit documentation in R/tau_distribution.R
 \name{tau_distribution}
 \alias{tau_distribution}
-\title{Distribution of \eqn{tau}}
+\title{Distribution of pleiotropic effects}
 \usage{
 tau_distribution(tau, width = 1/8)
 }
@@ -12,6 +12,10 @@ tau_distribution(tau, width = 1/8)
 \item{width}{Width of each bin. Passed to \code{cut}. Since \eqn{\tau} can
 only be between -1 and 1, it is meaningless to assign a width greater than
 that interval.}
+}
+\value{
+Data.frame listing bining levels, the midpoints for each bin, and the
+sums of \emph{q}-values in each bin.
 }
 \description{
 Bins values of \eqn{\tau} across pairs of observations so that a histogram can be created.

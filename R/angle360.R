@@ -2,9 +2,10 @@
 #'
 #' @param x,y Numerical vectors.
 #' @return A vector of radian values.
-
 angle360 <- function(x, y){
   if(length(x) != length(y)) stop("x and y are different lengths.")
+  if(any(x==0 & y==0)) warning("x and y contain one or more pairs of values that are both zero. NaN returned.")
+
   # Assign each pair of coordinates to a quadrant.
   quadrant <- numeric(length(x))
   quadrant[x >= 0 & y >= 0] <- 1

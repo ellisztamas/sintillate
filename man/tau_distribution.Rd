@@ -4,7 +4,7 @@
 \alias{tau_distribution}
 \title{Distribution of pleiotropic effects}
 \usage{
-tau_distribution(tau, width = 1/8)
+tau_distribution(tau, q, width = 1/8)
 }
 \arguments{
 \item{tau}{Vector of \eqn{\tau} values.}
@@ -12,6 +12,8 @@ tau_distribution(tau, width = 1/8)
 \item{width}{Width of each bin. Passed to \code{cut}. Since \eqn{\tau} can
 only be between -1 and 1, it is meaningless to assign a width greater than
 that interval.}
+
+\item{tau}{Vector of \eqn{q} values.}
 }
 \value{
 Data.frame listing bining levels, the midpoints for each bin, and the

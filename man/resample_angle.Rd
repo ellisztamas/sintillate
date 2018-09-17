@@ -8,13 +8,11 @@ resample_angle(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95,
   width = 1/8)
 }
 \arguments{
-\item{x}{Value, or vector of values allongthe \emph{x}-axis.}
+\item{x}{Values along the \emph{x}- and \emph{y}-axes. These can be single
+floats, vectors of floats, or matrices of floats.}
 
-\item{y}{Value, or vector of values allongthe \emph{y}-axis.}
-
-\item{SE_x}{Optional standard errors for elements in \emph{x} and \emph{y}.}
-
-\item{SE_y}{Optional standard errors for elements in \emph{x} and \emph{y}.}
+\item{y}{Values along the \emph{x}- and \emph{y}-axes. These can be single
+floats, vectors of floats, or matrices of floats.}
 
 \item{ndraws}{Integer number of bootstrap samples to draw.}
 

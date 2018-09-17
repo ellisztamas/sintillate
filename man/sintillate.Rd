@@ -4,20 +4,22 @@
 \alias{sintillate}
 \title{Quantify pleiotropic effects on two variables.}
 \usage{
-sintillate(x, y, SE_x = NULL, SE_y = NULL)
+sintillate(x, y)
 }
 \arguments{
-\item{x}{Value, or vector of values allongthe \emph{x}-axis.}
-
-\item{y}{Value, or vector of values allongthe \emph{y}-axis.}
-
-\item{SE_x, SE_y}{Optional standard errors for elements in \emph{x} and \emph{y}.}
+\item{x, y}{Values along the \emph{x}- and \emph{y}-axes. These can be single
+floats, vectors of floats, or matrices of floats.}
 }
 \value{
 Data frame including input data, vector norm angle, and \eqn{\tau}.
-If standard errors are supplied, standard errors for the norm, angle, are
-provided, as well as \emph{q} assuming normality of errors..
+If matrices were supplied, this returns a list of these data.
 }
 \description{
-\code{sintillate} calculates \eqn{\tau} and \eqn{q} for vectors \emph{x} and \emph{y}.
+\code{sintillate} calculates vector length, angle \eqn{\tau} for vectors
+\emph{x} and \emph{y}.
+}
+\details{
+Calculate basic summary statistics about a pair of vectors.
+This can also be used to calculate bootstrap values for each parameter by
+providing matrices rather than vectors of input values.
 }

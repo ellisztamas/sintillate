@@ -7,8 +7,12 @@
 #' This can also be used to calculate bootstrap values for each parameter by
 #' providing matrices rather than vectors of input values.
 #'
-#' @param x,y Values along the \emph{x}- and \emph{y}-axes. These can be single
-#' floats, vectors of floats, or matrices of floats.
+#' @param x,y Values along the \emph{x}- and \emph{y}-axes. This will usually be
+#' single floats or vectors of floats of observed values. Alternatively, supply
+#' matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
+#' values, or values drawn from a posterior distribution in a Bayesian analysis.
+#' In this case, matrices should have a row for every observation, and a column
+#' for every bootstrap/posterior draw.
 #'
 #' @return Data frame including input data, vector norm angle, and \eqn{\tau}.
 #' If matrices were supplied, this returns a list of these data.

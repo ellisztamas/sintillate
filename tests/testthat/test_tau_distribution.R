@@ -25,6 +25,10 @@ test_that("tau_distribution fails when shape of bootstraps does not match observ
 })
 
 test_that("tau_distribution fails when input values are beyond {-1, 1}.", {
-  expect_error(tau_distribution(rnorm(1000)), "greater than 1")
-  expect_error(tau_distribution(x, xbs*2), "greater than 1")
+  expect_error(tau_distribution(rnorm(1000)), "One or more values of tau are greater than 1.")
+  expect_error(tau_distribution(x, xbs*2), "One or more values in bootstrap are greater than 1.")
+})
+
+test_that("tau_distribution fails width > 1.", {
+  expect_error(tau_distribution(x, xbs, width = 1.2), "meaningless to split")
 })

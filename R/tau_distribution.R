@@ -22,8 +22,8 @@
 #'
 #' @export
 tau_distribution <- function(x, bootstrap=NULL, width = 1/8){
-  if(width > 2){
-    stop("Width > 2. Since $\\tau$ can only be between -1 and 1, it is meaningless to assign a width greater than that interval.")
+  if(width > 1){
+    stop("Width > 1. Since $\\tau$ can only be between -1 and 1, it is meaningless to split values into blocks greater than 1.")
   }
   # Check input value all fall between -1 and 1.
   if(any(x >  1)) stop("One or more values of tau are greater than 1.")

@@ -13,6 +13,6 @@
 hist_vals <- function(x, breaks=seq(-1,1,1/8)){
   counts <- table(cut(x, breaks = breaks))
   counts[is.na(counts)] <- 0
-  counts <- counts/ sum(counts)
+  counts <- counts / sum(counts)
   counts
 }

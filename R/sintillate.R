@@ -28,6 +28,11 @@ sintillate <- function(x, y){
       }
     }
   }
+  if(all(x>0) & all(y>0)){
+    warning("All values of both x and y are positive. Unless you are sure that
+            the reference alleles show global superiority in all cases, check
+            that values have been log transformed.")
+  }
 
   rad <-angle360(x, y) # calculate angles in radians
   output <- list(

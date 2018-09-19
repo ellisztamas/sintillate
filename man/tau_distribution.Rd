@@ -4,28 +4,31 @@
 \alias{tau_distribution}
 \title{Distribution of pleiotropic effects}
 \usage{
-tau_distribution(tau, q, width = 1/8)
+tau_distribution(x, bootstrap = NULL, width = 1/8)
 }
 \arguments{
-\item{tau}{Vector of \eqn{\tau} values.}
+\item{bootstrap}{Optional matrix of \eqn{tau} values derived from bootstrapping
+the *x* and *y* values used to create vector \code{tau}. This should have a row
+for every element in \code{tau}.}
 
-\item{width}{Width of each bin. Passed to \code{cut}. Since \eqn{\tau} can
+\item{width}{Width of each bin passed to \code{cut}. Since \eqn{\tau} can
 only be between -1 and 1, it is meaningless to assign a width greater than
 that interval.}
 
-\item{tau}{Vector of \eqn{q} values.}
+\item{tau}{Vector of \eqn{\tau} values.}
 }
 \value{
-Data.frame listing bining levels, the midpoints for each bin, and the
-sums of \emph{q}-values in each bin.
+Data.frame listing midpoints for each bin, and density within each
+bin. If bootstrapped values of \eqn{tau} are provided, upper and lower
+confidence intervals are returned as well.
 }
 \description{
-Bins values of \eqn{\tau} across pairs of observations so that a histogram can be created.
+Bins values of \eqn{\tau} across pairs of observations so that a histogram
+can be created.
 }
 \details{
 \code{tau_distribution} groups values of \eqn{tau} over observations into bins
 defined by \code{width}. Within each bin, values for \emph{q} for each
-\eqn{\tau} are summed. The resulting sum can be interpreted as the
-probability of observing a vector with \eqn{\tau} in that bin, accoutning for
-the robustness of the estimate of \eqn{\tau}.
+\eqn{\tau} are summed. In addition, a matrix of \eqn{tau} values can be given to estimate confidence
+intervals within each bin.
 }

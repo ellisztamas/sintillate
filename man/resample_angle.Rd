@@ -8,11 +8,19 @@ resample_angle(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95,
   width = 1/8)
 }
 \arguments{
-\item{x}{Values along the \emph{x}- and \emph{y}-axes. These can be single
-floats, vectors of floats, or matrices of floats.}
+\item{x}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
+single floats or vectors of floats of observed values. Alternatively, supply
+matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
+values, or values drawn from a posterior distribution in a Bayesian analysis.
+In this case, matrices should have a row for every observation, and a column
+for every bootstrap/posterior draw.}
 
-\item{y}{Values along the \emph{x}- and \emph{y}-axes. These can be single
-floats, vectors of floats, or matrices of floats.}
+\item{y}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
+single floats or vectors of floats of observed values. Alternatively, supply
+matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
+values, or values drawn from a posterior distribution in a Bayesian analysis.
+In this case, matrices should have a row for every observation, and a column
+for every bootstrap/posterior draw.}
 
 \item{ndraws}{Integer number of bootstrap samples to draw.}
 

@@ -7,8 +7,12 @@
 sintillate(x, y)
 }
 \arguments{
-\item{x, y}{Values along the \emph{x}- and \emph{y}-axes. These can be single
-floats, vectors of floats, or matrices of floats.}
+\item{x, y}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
+single floats or vectors of floats of observed values. Alternatively, supply
+matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
+values, or values drawn from a posterior distribution in a Bayesian analysis.
+In this case, matrices should have a row for every observation, and a column
+for every bootstrap/posterior draw.}
 }
 \value{
 Data frame including input data, vector norm angle, and \eqn{\tau}.

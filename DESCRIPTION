@@ -15,5 +15,5 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/ellisztamas/sintillate
 BugReports: https://github.com/ellisztamas/sintillate/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Suggests: testthat

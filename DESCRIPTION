@@ -1,7 +1,7 @@
 Package: sintillate
 Type: Package
 Title: An R package for quantifying trade-offs, pleiotropy and genotype-by-environment interactions
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Tom", "Ellis", email="thomas.ellis@ebc.uu.se", role=c("aut", "cre"))
 Maintainer: Tom Ellis <thomas.ellis@ebc.uu.se>
 Description: sintillate provides tools for quantifying trade-offs between two measured variables.

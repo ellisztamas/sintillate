@@ -11,7 +11,7 @@ xbs <- x + xbs
 
 test_that("tau_distribuition returns correct dimensions", {
   expect_equal(dim(tau_distribution(x)),      c(16,2))
-  expect_equal(dim(tau_distribution(x, xbs)), c(16,4))
+  expect_equal(dim(tau_distribution(x, xbs)), c(16,5))
 })
 
 test_that("Mean tau values fall beyond condidence intervals", {

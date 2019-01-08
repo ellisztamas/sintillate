@@ -27,6 +27,7 @@ sintillate <- function(x, y){
         stop(paste("Matrix x has dimensions {", nrow(x),",", ncol(x),"} but y has dimensions {", nrow(y),",", ncol(y),"}.", sep=""))
       }
     }
+
   }
   if(all(x>0) & all(y>0)){
     warning("All values of both x and y are positive. Unless you are sure that

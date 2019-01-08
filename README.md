@@ -4,6 +4,8 @@ An R package for summarising vectors in a bivariate plane through their angle an
 
 The name is a pun on the verb *scintillate* and the standard abbreviation for the sine function used to estimate $\tau$ statistics.
 
+As of January 2019 there is currently a manuscript to accompany the package and describe the method in detail which is veyr nearly at the stage of being publishable on bioarxiv. This text will change when that happens.
+
 ## Installation
 
 This package is not yet on CRAN, so installation is easiest straight from GitHub using the package `devtools`. If necessary, install this with

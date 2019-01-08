@@ -4,9 +4,11 @@
 \alias{tau_distribution}
 \title{Distribution of pleiotropic effects}
 \usage{
-tau_distribution(x, bootstrap = NULL, width = 1/8)
+tau_distribution(tau, bootstrap = NULL, width = 1/8)
 }
 \arguments{
+\item{tau}{Vector of \eqn{\tau} values.}
+
 \item{bootstrap}{Optional matrix of \eqn{tau} values derived from bootstrapping
 the *x* and *y* values used to create vector \code{tau}. This should have a row
 for every element in \code{tau}.}
@@ -14,8 +16,6 @@ for every element in \code{tau}.}
 \item{width}{Width of each bin passed to \code{cut}. Since \eqn{\tau} can
 only be between -1 and 1, it is meaningless to assign a width greater than
 that interval.}
-
-\item{tau}{Vector of \eqn{\tau} values.}
 }
 \value{
 Data.frame listing midpoints for each bin, and density within each

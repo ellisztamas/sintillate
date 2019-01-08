@@ -8,19 +8,9 @@ resample_angle(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95,
   width = 1/8)
 }
 \arguments{
-\item{x}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
-single floats or vectors of floats of observed values. Alternatively, supply
-matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
-values, or values drawn from a posterior distribution in a Bayesian analysis.
-In this case, matrices should have a row for every observation, and a column
-for every bootstrap/posterior draw.}
+\item{x, y}{Values along the \emph{x}- and \emph{y}-axes.}
 
-\item{y}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
-single floats or vectors of floats of observed values. Alternatively, supply
-matrices of floats to calculate tau for a sample of bootstrapped *x* and *y*
-values, or values drawn from a posterior distribution in a Bayesian analysis.
-In this case, matrices should have a row for every observation, and a column
-for every bootstrap/posterior draw.}
+\item{SE_x, SE_y}{Standard errors for \emph{x} and \emph{y} values.}
 
 \item{ndraws}{Integer number of bootstrap samples to draw.}
 
@@ -46,7 +36,7 @@ calculated, and confidence intervals drawn from their distribution.
 
 In addition, the bootstrap distribution of \eqn{\tau} \emph{across} pairs of
 observations in \emph{x} and \emph{y} is calculated by summing distributions
-for each individual pair. Note that in contras to \code{tau_distribution}
+for each individual pair. Note that in contrast to \code{tau_distribution}
 this does incorporate confidence in position by summing \emph{q}; uncertainty
 about distribution shape is accounted for through the bootstrapping process.
 }

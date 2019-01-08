@@ -21,24 +21,24 @@
 #' confidence intervals are returned as well.
 #'
 #' @export
-tau_distribution <- function(x, bootstrap=NULL, width = 1/8){
+tau_distribution <- function(tau, bootstrap=NULL, width = 1/8){
   if(width > 1){
     stop("Width > 1. Since $\\tau$ can only be between -1 and 1, it is meaningless to split values into blocks greater than 1.")
   }
   # Check input value all fall between -1 and 1.
-  if(any(x >  1)) stop("One or more values of tau are greater than 1.")
-  if(any(x < -1)) stop("One or more values of tau are less than 1.")
+  if(any(tau >  1)) stop("One or more values of tau are greater than 1.")
+  if(any(tau < -1)) stop("One or more values of tau are less than 1.")
 
   breaks <- seq(-1, 1, width)
-  yvals <- as.numeric(hist_vals(x, breaks))
+  yvals <- as.numeric(hist_vals(tau, breaks))
 
   if(is.null(bootstrap)){
     out <- data.frame(
       midpoint = breaks[-1]-width/2,
       density  = yvals)
   } else {
-    if(nrow(bootstrap) != length(x)){
-      stop("Matrix of bootstrap values has", nrow(bootstrap), "rows, but the original dataset has", nrow(x))
+    if(nrow(bootstrap) != length(tau)){
+      stop("Matrix of bootstrap values has", nrow(bootstrap), "rows, but the original dataset has", nrow(tau))
     }
     # Check bootstrap values all fall between -1 and 1.
     if(any(bootstrap >  1)) stop("One or more values in bootstrap are greater than 1.")
@@ -48,6 +48,7 @@ tau_distribution <- function(x, bootstrap=NULL, width = 1/8){
     out <- data.frame(
       midpoint = breaks[-1]-width/2,
       density  = yvals,
+      mean     = apply(boot_cut, 1, mean),
       lower_CI = apply(boot_cut, 1, quantile, 0.025),
       upper_CI = apply(boot_cut, 1, quantile, 0.975),
       row.names = NULL

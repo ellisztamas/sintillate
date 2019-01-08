@@ -11,11 +11,12 @@
 #'
 #' In addition, the bootstrap distribution of \eqn{\tau} \emph{across} pairs of
 #' observations in \emph{x} and \emph{y} is calculated by summing distributions
-#' for each individual pair. Note that in contras to \code{tau_distribution}
+#' for each individual pair. Note that in contrast to \code{tau_distribution}
 #' this does incorporate confidence in position by summing \emph{q}; uncertainty
 #' about distribution shape is accounted for through the bootstrapping process.
 #'
-#' @inheritParams sintillate
+#' @param x,y Values along the \emph{x}- and \emph{y}-axes.
+#' @param SE_x,SE_y Standard errors for \emph{x} and \emph{y} values.
 #' @param ndraws Integer number of bootstrap samples to draw.
 #' @param conf_interval Probability coverage of the interval.
 #' @param width Bin width for calculating the bootstrap distribution of \eqn{\tau}.
@@ -24,7 +25,6 @@
 #' length and (tau) \eqn{\tau} values for each pair of elements in \code{x} and
 #' \code{y}.
 #'
-#' @export
 resample_angle <- function(x, y, SE_x, SE_y, ndraws = 1000, conf_interval = 0.95, width = 1/8){
   if(conf_interval >=1 | conf_interval <=0) stop('Width of the confidence interval should be between 0 and 1.')
   # determine which quantiles return two-tailed confidence intervals

@@ -1,5 +1,20 @@
 # sintillate
 
+## Table of contents
+
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Dependencies](#dependencies)
+4. [Usage](#usage)
+    1. [Aims and input data](#aims-and-input-data)
+    2. [Basic function](#basic-function)
+    3. [Incorporating uncertainty](#incorporating-uncertainty)
+5. [Citing sintillate](#citing-sintillate)
+6. [Issues](#issues)
+7. [Author and license information](#author-and-license-information)
+    
+## Introduction
+
 An R package for summarising vectors in a bivariate plane through their angle and vector length. This is primarily aimed at researchers studying pleiotropy and genotype-by-environment interactions in biology, but is generally applicable to any situation involving reaction norms or interaction plots.
 
 The name is a pun on the verb *scintillate* and the standard abbreviation for the sine function used to estimate $\tau$ statistics.
@@ -102,3 +117,13 @@ apply(sint$tau, 1, quantile, c(0.025, 0.975))
 If you use the package in your work, please cite:
 
 > Ellis, Thomas James (2019), "sintillate: An R package for quantifying trade-offs, pleiotropy and genotype-by-environment interactions", available from www.github.com/ellisztamas/sintillate"
+
+## Issues
+
+Please report any bugs or requests that you have using the GitHub issue tracker.
+
+## Author and license information
+
+Tom Ellis (thomas[dot]ellis[at]gmi[dot]oeaw[dot]ac[dot]at)
+
+`sintillate` is available under the MIT license. See LICENSE for more information.

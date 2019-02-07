@@ -54,10 +54,10 @@ allelic_relative_fitness <- function(geno, pheno, alleles=c(0,1,2)){
   fitB <- (sumBB + (0.5*sumAB)) / colSums(maskBB + maskAB, na.rm = TRUE)
 
   # # Check for odd patterns.
-  if(any(fitA == 0)) warning("The allele labelled", alleles[1],"has zero fitness at one or more loci.")
-  if(any(fitB == 0)) warning("The allele labelled", alleles[3],"has zero fitness at one or more loci.")
-  if(any(fitA <  0)) warning("The allele labelled", alleles[1],"has negative fitness at one or more loci!")
-  if(any(fitB <  0)) warning("The allele labelled", alleles[3],"has negative fitness at one or more loci!")
+  if(any(fitA == 0)) warning("The allele labelled '", alleles[1],"' has zero fitness at one or more loci.")
+  if(any(fitB == 0)) warning("The allele labelled '", alleles[3],"' has zero fitness at one or more loci.")
+  if(any(fitA <  0)) warning("The allele labelled '", alleles[1],"' has negative fitness at one or more loci!")
+  if(any(fitB <  0)) warning("The allele labelled '", alleles[3],"' has negative fitness at one or more loci!")
 
   relfit <- fitB / fitA
   return(as.data.frame(relfit))

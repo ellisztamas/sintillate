@@ -9,8 +9,9 @@
 #'
 #' @return A matrix of bootstrap samples with a row for each element in `x` and
 #' `R` columns.
-#' @export
+#'
 #' @author Tom Ellis
+#' @export
 parametric_resample <- function(x, se, R){
   vals <- rnorm(R*length(x))
   vals <- matrix(vals, nrow=length(x))

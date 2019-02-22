@@ -124,6 +124,6 @@ Please report any bugs or requests that you have using the GitHub issue tracker.
 
 ## Author and license information
 
-Tom Ellis (thomas[dot]ellis[at]gmi[dot]oeaw[dot]ac[dot]at)
+Tom Ellis (thomas.ellis@gmi.oeaw.ac.at)
 
 `sintillate` is available under the MIT license. See LICENSE for more information.

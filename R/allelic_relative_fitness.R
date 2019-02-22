@@ -36,6 +36,7 @@
 #'
 #' @export
 allelic_relative_fitness <- function(geno, pheno, alleles=c(0,1,2)){
+  .Deprecated("allelic_effect_sizes", msg = "allelic_relative_fitness was deprecated in favour of allelic_effect_sizes at sintillate versions 0.2.1.")
   # positions of homozygotes and heterozygotes
   maskAA <- (geno == alleles[1])
   maskAB <- (geno == alleles[2])

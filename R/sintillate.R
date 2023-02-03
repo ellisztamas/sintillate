@@ -18,7 +18,7 @@
 #' If matrices were supplied, this returns a list of these data.
 #'
 #' @export
-sintillate <- function(x, y){
+sintillate <- function(x, y, calculate_zstar=FALSE, zstar_ref=NULL){
   if(is.vector(x) & is.vector(y)){
     if(length(x) != length(y)) stop(paste("Vector x has", length(x),"elements but y has", length(y)))
   } else {
@@ -26,29 +26,32 @@ sintillate <- function(x, y){
       if(any(dim(x) != dim(y))){
         stop(paste("Matrix x has dimensions {", nrow(x),",", ncol(x),"} but y has dimensions {", nrow(y),",", ncol(y),"}.", sep=""))
       }
+    if( calculate_zstar ){
+      warning("calculate_zstar is not currently implemented for matrices.")
     }
-
-  }
-  if(all(x>0) & all(y>0)){
-    warning("All values of both x and y are positive. Unless you are sure that
-            the reference alleles show global superiority in all cases, check
-            that values have been log transformed.")
+    }
   }
 
-  rad <-angle360(x, y) # calculate angles in radians
+  rad <- angle360(x,y) # calculate angles in radians
   output <- list(
     x       = x, # return input data
     y       = y,
     norm    = vector_norm(x,y), # vector length
     radians = rad,   # the angle of the norm in radians
     degrees = (rad * 180) / (pi), # express angles in degrees.
-    tau     = tau(rad) # calculate sine of twice the angle
+    tau     = tau(rad)
   )
 
   # If the input data were vectors, collapse output into a data.frame.
   if(is.vector(x) & is.vector(y)){
     output <- do.call('cbind', output)
     output <- as.data.frame(output)
+    if( calculate_zstar ){
+      if( is.null(zstar_ref) ) {
+        zstar_ref <- c( mean(output$x), mean(output$y) )
+      }
+      output$zstar <- z_star(samples = output, ref = zstar_ref)
+    }
   }
   return(output)
 }

@@ -17,7 +17,7 @@
 #' \deqn{z_A = z_{AA} + z_{AB}/2}
 #' \deqn{z_B = z_{BB} + z_{AB}/2}
 #'
-#' Based on \eqn{z_A} and \eqn{z_B}, the effect size for this locus in tow ways.
+#' Based on \eqn{z_A} and \eqn{z_B}, the effect size for this locus in two ways.
 #' In most cases, it will be appropriate to calculate the additive difference
 #' \eqn{z_B - z_A}. Alternatively, especially when the trait in question is
 #' fitness, it is appropriate to calculate the relative effect size

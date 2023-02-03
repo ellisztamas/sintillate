@@ -1,0 +1,13 @@
+# NEWS
+
+## v0.3.0
+
+* Removed several functions for making specific plots. Instead, the output is
+  intended to be easy to turn into tidy tables that can be passed to ggplot.
+* Fixed a bug in how angles are calculated in `angle360()`.
+* Added function z_star to project vectors onto a reference vector. This would
+  usually be to project bootstrap resamples or posterior samples onto the
+  original observed vector to estimate confidence in the vector. This is called
+  internally in `sintillate`.
+
+

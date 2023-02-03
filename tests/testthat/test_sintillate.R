@@ -19,8 +19,18 @@ test_that("sintillate fails if inputs are different sizes", {
   expect_error(sintillate(xmat, head(ymat)), "has dimensions")
 })
 
-test_that("sintillate throws a warning if all x and y values are positive", {
-  expect_is(sintillate(abs(x), y), "data.frame")
-  expect_is(sintillate(x, abs(y)), "data.frame")
-  expect_warning(sintillate(abs(x), abs(y)), "both x and y are positive")
+
+test_that("calculate_zstar works for vectors", {
+  n <- 1000
+  # for vectors
+  x <- rnorm(n, mean = 1)
+  y <- rnorm(n, mean= 1 )
+  # Set the correct vector direction
+  sint <- sintillate(x,y, calculate_zstar = TRUE, zstar_ref = c(1,1))
+  expect_gt( cor(sint$zstar, sint$y), 0.5 )
+  expect_gt( cor(sint$zstar, sint$x), 0.5 )
+  # Let it guess the vector.
+  sint <- sintillate(x,y, calculate_zstar = TRUE)
+  expect_gt( cor(sint$zstar, sint$y), 0.5 )
+  expect_gt( cor(sint$zstar, sint$x), 0.5 )
 })

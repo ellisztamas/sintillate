@@ -2,7 +2,4 @@
 
 export(allelic_effect_sizes)
 export(allelic_relative_fitness)
-export(parametric_resample)
-export(plot_tau_dist)
 export(sintillate)
-export(tau_distribution)

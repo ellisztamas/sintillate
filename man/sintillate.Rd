@@ -4,7 +4,7 @@
 \alias{sintillate}
 \title{Quantify pleiotropic effects on two variables.}
 \usage{
-sintillate(x, y)
+sintillate(x, y, calculate_zstar = FALSE, zstar_ref = NULL)
 }
 \arguments{
 \item{x, y}{Values along the \emph{x}- and \emph{y}-axes. This will usually be
